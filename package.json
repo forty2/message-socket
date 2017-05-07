@@ -1,0 +1,61 @@
+{
+  "name": "message-socket",
+  "version": "1.0.0",
+  "description": "A TCP client socket with customizable message parsing, outgoing message queueing, and more",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src -d dist -D",
+    "clean": "rm -rf dist/",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/forty2/message-socket.git"
+  },
+  "keywords": [
+    "socket",
+    "messages",
+    "parse",
+    "client",
+    "queue",
+    "network",
+    "observable"
+  ],
+  "author": "Zach Bean <zb@forty2.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/forty2/message-socket/issues"
+  },
+  "homepage": "https://github.com/forty2/message-socket#readme",
+  "dependencies": {
+    "rxjs": "^5.3.1",
+    "symbol-observable": "^1.0.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.14.0",
+    "babel-plugin-syntax-function-bind": "^6.13.0",
+    "babel-plugin-transform-function-bind": "^6.8.0",
+    "babel-plugin-transform-object-rest-spread": "^6.8.0",
+    "babel-preset-env": "^1.4.0",
+    "debug": "^2.6.4"
+  },
+  "engines" : { "node": ">=6.0" },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": 6.0
+          }
+        }
+      ]
+    ],
+    "plugins": [
+      "syntax-function-bind",
+      "transform-function-bind",
+      "transform-object-rest-spread"
+    ]
+  }
+}
