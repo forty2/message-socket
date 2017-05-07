@@ -1,7 +1,7 @@
 # message-socket
 > A TCP client socket with customizable message parsing, automatic restoration of lost connections, outgoing message queueing, and more
 
-[![NPM Version][npm-image]][npmi-url]
+[![NPM Version][npm-image]][npm-url]
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
 
 message-socket is a Node.js library that makes writing raw TCP clients much easier.  Two features are primarily responsible for this ease of use: customizable incoming message parsing, and queueing of outgoing messages during lost connections.
