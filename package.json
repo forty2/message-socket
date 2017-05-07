@@ -29,7 +29,6 @@
   },
   "homepage": "https://github.com/forty2/message-socket#readme",
   "dependencies": {
-    "rxjs": "^5.3.1",
     "symbol-observable": "^1.0.2"
   },
   "devDependencies": {
