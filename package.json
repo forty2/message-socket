@@ -40,14 +40,16 @@
     "babel-preset-env": "^1.4.0",
     "debug": "^2.6.4"
   },
-  "engines" : { "node": ">=6.0" },
+  "engines": {
+    "node": ">=6.0"
+  },
   "babel": {
     "presets": [
       [
         "env",
         {
           "targets": {
-            "node": 6.0
+            "node": 6
           }
         }
       ]
