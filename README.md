@@ -144,6 +144,8 @@ yarn run clean
 ```
 
 ## Release History
+* 1.0.4
+    * Minor debugging updates
 
 * 1.0.0
     * The first release.

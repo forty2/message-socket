@@ -22,6 +22,16 @@ function getObserver(observerOrOnNext, error = NOOP, complete = NOOP) {
     else return observerOrOnNext;
 }
 
+function asString() {
+    if (typeof this === 'string') {
+        return this
+    }
+    else if (this instanceof Buffer) { 
+        return this.toString('hex');
+    }
+    return util.inspect(this);
+}
+
 class Subject {
     constructor() {
         this._observers = [];
@@ -129,14 +139,16 @@ function setUpConnection() {
         this[$private].connected = true;
         socket.on('readable', () => {
             const raw = socket.read();
+            debug('got raw message: ' + raw::asString());
+            debug('existing buffer: ' + this[$private].buffer::asString());
+
             let buffer = this[$private].buffer::concat(raw == null ? emptyBuffer() : raw);
-            debug('buffer: ' + util.inspect(buffer));
 
             let m, splitter = this[$private].bufferSplitter;
 
             let [ messages, leftover ] = splitter(buffer)
 
-            debug('leftover: ' + leftover);
+            debug('leftover: ' + leftover::asString());
 
             this[$private].buffer = leftover || emptyBuffer();
 
@@ -210,11 +222,7 @@ function processQueue() {
     // if there is something to do and there's a connection, process
     // the first item in the queue
     let cmd = outgoingQueue.shift();
-    if (typeof cmd === 'string') {
-        debug("sent: " + cmd);
-    } else {
-        debug("sent: " + cmd.toString('hex'));
-    }
+    debug("sent: " + cmd::asString());
     socket.write(cmd);
     nextTick(() => {
         this::processQueue();
